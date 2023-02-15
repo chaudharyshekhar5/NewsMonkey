@@ -22,7 +22,7 @@ export class News extends Component {
       page: 1,
     };
   }
-
+  apikey = "bcd9cf4e-d825-4db9-925e-2afddacddf00";
   async handleUpdate() {
     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apikey=0ca453bc7e1e4871817bc9bdf6825677&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
@@ -33,6 +33,7 @@ export class News extends Component {
       loading: false,
       totalResults: parsedData.totalResults,
     });
+    console.log(parsedData);
   }
   async componentDidMount() {
     this.handleUpdate();
@@ -65,7 +66,7 @@ export class News extends Component {
         {this.state.loading && <Spinner />}
         <div className="row">
           {!this.state.loading &&
-            this.state.articles.map((element) => {
+            this.state.articles?.map((element) => {
               return (
                 <div className="col-md-4" key={element.url}>
                   <NewsItem
