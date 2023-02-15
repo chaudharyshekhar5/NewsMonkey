@@ -16,77 +16,22 @@ export default class App extends Component {
         <Router>
           <Navbar />
           <Routes>
-            <Route exact path="/" element={<News key="general" />} />
-            <Route
-              exact
-              path="/sports"
-              element={
-                <NewsSports key="sports" country="in" category="sports" />
-              }
-            />
+            <Route path="/" element={<News key="general" />} />
+            <Route path="/sports" element={<NewsSports key="sports" />} />
+
+            <Route path="/science" element={<NewsScience key="science" />} />
 
             <Route
-              exact
-              path="/science"
-              element={
-                <NewsScience
-                  key="science"
-                  pageSize={6}
-                  country="in"
-                  category="science"
-                />
-              }
-            />
-
-            <Route
-              exact
               path="/entertainment"
-              element={
-                <NewsEntertainment
-                  key="entertainment"
-                  pageSize={6}
-                  country="in"
-                  category="entertainment"
-                />
-              }
+              element={<NewsEntertainment key="entertainment" />}
             />
 
             <Route
-              exact
               path="/technology"
-              element={
-                <NewsTechnology
-                  key="technology"
-                  pageSize={6}
-                  country="in"
-                  category="technology"
-                />
-              }
+              element={<NewsTechnology key="technology" />}
             />
-            <Route
-              exact
-              path="/business"
-              element={
-                <NewsBusiness
-                  key="business"
-                  pageSize={6}
-                  country="in"
-                  category="business"
-                />
-              }
-            />
-            <Route
-              exact
-              path="/health"
-              element={
-                <NewsHealth
-                  key="health"
-                  pageSize={6}
-                  country="in"
-                  category="health"
-                />
-              }
-            />
+            <Route path="/business" element={<NewsBusiness key="business" />} />
+            <Route path="/health" element={<NewsHealth key="health" />} />
           </Routes>
         </Router>
       </div>
