@@ -35,7 +35,6 @@ export default class App extends Component {
             <Route path="/business" element={<NewsBusiness key="business" />} />
             <Route path="/health" element={<NewsHealth key="health" />} />
             <Route path="*" element={<Navigate to="/" replace />} />
-            const name = new type(arguments);
           </Routes>
         </Router>
       </div>
