@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import Navbar from "./components/Navbar";
-import News from "./components/News";
+import News from "./components/NewsGeneral";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import NewsBusiness from "./components/NewsBusiness";
+import NewsTechnology from "./components/NewsTechnology";
+import NewsSports from "./components/NewsSports";
+import NewsScience from "./components/NewsScience";
+import NewsEntertainment from "./components/NewsEntertainment";
+import NewsHealth from "./components/NewsHealth";
 
 export default class App extends Component {
   render() {
@@ -10,28 +16,12 @@ export default class App extends Component {
         <Router>
           <Navbar />
           <Routes>
-            <Route
-              exact
-              path="/"
-              element={
-                <News
-                  key="general"
-                  pageSize={6}
-                  country="in"
-                  category="general"
-                />
-              }
-            />
+            <Route exact path="/" element={<News key="general" />} />
             <Route
               exact
               path="/sports"
               element={
-                <News
-                  key="sports"
-                  pageSize={6}
-                  country="in"
-                  category="sports"
-                />
+                <NewsSports key="sports" country="in" category="sports" />
               }
             />
 
@@ -39,7 +29,7 @@ export default class App extends Component {
               exact
               path="/science"
               element={
-                <News
+                <NewsScience
                   key="science"
                   pageSize={6}
                   country="in"
@@ -52,7 +42,7 @@ export default class App extends Component {
               exact
               path="/entertainment"
               element={
-                <News
+                <NewsEntertainment
                   key="entertainment"
                   pageSize={6}
                   country="in"
@@ -65,7 +55,7 @@ export default class App extends Component {
               exact
               path="/technology"
               element={
-                <News
+                <NewsTechnology
                   key="technology"
                   pageSize={6}
                   country="in"
@@ -77,7 +67,7 @@ export default class App extends Component {
               exact
               path="/business"
               element={
-                <News
+                <NewsBusiness
                   key="business"
                   pageSize={6}
                   country="in"
@@ -89,7 +79,7 @@ export default class App extends Component {
               exact
               path="/health"
               element={
-                <News
+                <NewsHealth
                   key="health"
                   pageSize={6}
                   country="in"
