@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import News from "./components/NewsGeneral";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NewsBusiness from "./components/NewsBusiness";
 import NewsTechnology from "./components/NewsTechnology";
 import NewsSports from "./components/NewsSports";
