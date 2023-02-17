@@ -323,14 +323,17 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-2">
-        <h1
-          className="text-center"
-          style={{
-            color: "red",
-          }}
-        >
-          YOU GET DAILY NEWS HERE{" "}
-        </h1>
+        <div className="text-center">
+          <span
+            style={{
+              color: "red",
+              fontWeight: "bold",
+              textShadow: "-1px 1px 10px rgba(0, 0, 0, 0.75)",
+            }}
+          >
+            <h1>GET YOUR DAILY NEWS HERE</h1>
+          </span>
+        </div>
         {/*{this.state.loading && <Spinner />}*/}
         <InfiniteScroll
           dataLength={this.state.articles.length}
