@@ -4,7 +4,7 @@ import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import propTypes from "prop-types";
 
-export class News extends Component {
+export class NewsSports extends Component {
   articles = [
     {
       source: { id: null, name: "The Athletic" },
@@ -377,4 +377,4 @@ export class News extends Component {
   }
 }
 
-export default News;
+export default NewsSports;

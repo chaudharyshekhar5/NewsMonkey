@@ -3,7 +3,7 @@ import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import propTypes from "prop-types";
 
-export class News extends Component {
+export class NewsTechnology extends Component {
   articles = [
     {
       source: { id: null, name: "YouTube" },
@@ -349,4 +349,4 @@ export class News extends Component {
   }
 }
 
-export default News;
+export default NewsTechnology;
