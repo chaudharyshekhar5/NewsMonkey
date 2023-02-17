@@ -299,35 +299,33 @@ export class News extends Component {
             <h1>GET YOUR DAILY NEWS HERE</h1>
           </span>
         </div>
-        {this.state.loading && <Spinner />}
         <div className="row">
-          {!this.state.loading &&
-            this.state.articles?.map((element) => {
-              return (
-                <div className="col-md-4" key={element.url}>
-                  <NewsItem
-                    title={
-                      element.title ? element.title.slice(0, 45) : "Latest News"
-                    }
-                    description={
-                      element.description
-                        ? element.description.slice(0, 88)
-                        : "For more detail click on Read More"
-                    }
-                    newsUrl={element.url}
-                    imageUrl={
-                      element.urlToImage
-                        ? element.urlToImage
-                        : "https://content.fortune.com/wp-content/uploads/2023/02/GettyImages-1261552395-e1676242511548.jpg?resize=1200,600"
-                    }
-                    date={
-                      element.publishedAt ? element.publishedAt : "2 days ago"
-                    }
-                    author={element.author ? element.author : "Unknown"}
-                  />
-                </div>
-              );
-            })}
+          {this.state.articles?.map((element) => {
+            return (
+              <div className="col-md-4" key={element.url}>
+                <NewsItem
+                  title={
+                    element.title ? element.title.slice(0, 45) : "Latest News"
+                  }
+                  description={
+                    element.description
+                      ? element.description.slice(0, 88)
+                      : "For more detail click on Read More"
+                  }
+                  newsUrl={element.url}
+                  imageUrl={
+                    element.urlToImage
+                      ? element.urlToImage
+                      : "https://content.fortune.com/wp-content/uploads/2023/02/GettyImages-1261552395-e1676242511548.jpg?resize=1200,600"
+                  }
+                  date={
+                    element.publishedAt ? element.publishedAt : "2 days ago"
+                  }
+                  author={element.author ? element.author : "Unknown"}
+                />
+              </div>
+            );
+          })}
         </div>
         <div className="container d-flex justify-content-between">
           <button
