@@ -21,7 +21,10 @@ export default class App extends Component {
         <Router>
           <Navbar />
           <Routes>
-            <Route path="/" element={<News key="general" />} />
+            <Route
+              path="/"
+              element={<News key="general" category="General" />}
+            />
             <Route path="/sports" element={<NewsSports key="sports" />} />
             <Route path="/science" element={<NewsScience key="science" />} />
             <Route
@@ -34,7 +37,6 @@ export default class App extends Component {
             />
             <Route path="/business" element={<NewsBusiness key="business" />} />
             <Route path="/health" element={<NewsHealth key="health" />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Router>
       </div>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import propTypes from "prop-types";
@@ -280,8 +281,8 @@ export class News extends Component {
   ];
 
   static defaultProps = {
-    country: "in",
     category: "general",
+    totalResults: 0,
   };
   static propTypes = {
     country: propTypes.string,
@@ -292,6 +293,7 @@ export class News extends Component {
     this.state = {
       articles: this.articles,
       loading: false,
+      page: 1,
     };
   }
   async handleUpdate() {
@@ -311,6 +313,14 @@ export class News extends Component {
   handleNextClick = async () => {
     this.handleUpdate();
   };
+  fetchMoreData = () => {
+    this.setState({ page: this.state.page + 1 });
+    this.setState({
+      articles: this.state.articles.concat(this.articles),
+      loading: false,
+      totalResults: this.totalResults,
+    });
+  };
 
   render() {
     return (
@@ -323,10 +333,15 @@ export class News extends Component {
         >
           YOU GET DAILY NEWS HERE{" "}
         </h1>
-        {this.state.loading && <Spinner />}
-        <div className="row">
-          {!this.state.loading &&
-            this.state.articles?.map((element) => {
+        {/*{this.state.loading && <Spinner />}*/}
+        <InfiniteScroll
+          dataLength={this.state.articles.length}
+          next={this.fetchMoreData}
+          hasMore={this.state.articles.length !== this.state.totalResults}
+          loader={<Spinner />}
+        >
+          <div className="row">
+            {this.state.articles?.map((element) => {
               return (
                 <div className="col-md-4" key={element.url}>
                   <NewsItem
@@ -352,24 +367,8 @@ export class News extends Component {
                 </div>
               );
             })}
-        </div>
-        <div className="container d-flex justify-content-between">
-          <button
-            disabled={this.state.page <= 1}
-            type="button"
-            className="btn btn-success"
-            onClick={this.handlePrevClick}
-          >
-            &larr; Previous
-          </button>
-          <button
-            type="button"
-            className="btn btn-success"
-            onClick={this.handleNextClick}
-          >
-            Next &rarr;
-          </button>
-        </div>
+          </div>
+        </InfiniteScroll>
       </div>
     );
   }
